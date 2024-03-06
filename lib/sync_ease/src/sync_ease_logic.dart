@@ -9,9 +9,9 @@ class SyncEaseLogic {
   ///
   /// Returns:
   ///   The registered instance of SyncEaseLogic.
-  static reg(SyncEaseLogic syncEaseLogic){
-    Utils.registeredLogics[syncEaseLogic.toString()]=syncEaseLogic;
-    return  Utils.registeredLogics[syncEaseLogic.toString()];
+  static reg(SyncEaseLogic syncEaseLogic) {
+    Utils.registeredLogics[syncEaseLogic.toString()] = syncEaseLogic;
+    return Utils.registeredLogics[syncEaseLogic.toString()];
   }
 
   /// Retrieves a registered instance of SyncEaseLogic.
@@ -21,7 +21,7 @@ class SyncEaseLogic {
   ///
   /// Returns:
   ///   The registered instance of SyncEaseLogic, if found.
-  static get(SyncEaseLogic syncEaseLogic){
-    return  Utils.registeredLogics[syncEaseLogic.toString()];
+  static get(SyncEaseLogic syncEaseLogic) {
+    return Utils.registeredLogics[syncEaseLogic.toString()];
   }
 }

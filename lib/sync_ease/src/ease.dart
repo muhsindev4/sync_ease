@@ -76,7 +76,8 @@ class Ease<T> {
     if (_value is List) {
       (_value as List).add(value);
     } else {
-      throw ArgumentError('Ease of type ${T} cannot add values of type ${value.runtimeType}');
+      throw ArgumentError(
+          'Ease of type ${T} cannot add values of type ${value.runtimeType}');
     }
     _listener?.call();
   }

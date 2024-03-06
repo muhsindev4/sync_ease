@@ -1,6 +1,6 @@
 name: sync_ease
-description: "A new Flutter StateManagement"
-version: 0.0.1
+description: "SyncEase is a lightweight Flutter State Management library designed to simplify state handling in Flutter applications. It offers intuitive APIs, error handling, loading state management, and batch operations, catering to various state management needs. Ideal for managing both simple value states and complex list states."
+version: 0.0.2
 homepage: "https://github.com/muhsindev4/sync_ease"
 
 environment:
