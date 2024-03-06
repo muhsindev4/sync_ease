@@ -1,6 +1,6 @@
 name: sync_ease
 description: "A lightweight Flutter State Management library for simplified state handling in Flutter applications."
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/muhsindev4/sync_ease"
 
 environment:
