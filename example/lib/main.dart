@@ -12,8 +12,7 @@ class User {
 /// The main application widget.
 class MyApp extends StatelessWidget {
   final Ease<List> _incrementList = Ease([0]);
-  final Ease<User> _user =
-  Ease(User(name: "Ali", email: "ali@gmail.com"));
+  final Ease<User> _user = Ease(User(name: "Ali", email: "ali@gmail.com"));
   final HomeLogic _homeLogic = SyncEaseLogic.reg(HomeLogic());
 
   /// Constructs a new instance of MyApp.
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  SecondPage()),
+                MaterialPageRoute(builder: (context) => SecondPage()),
               );
             },
             child: const Icon(Icons.arrow_forward_ios_rounded),
@@ -37,8 +36,7 @@ class MyApp extends StatelessWidget {
             onPressed: () {
               _homeLogic._increment.value++;
               _incrementList.add(1);
-              _user.value =
-                  User(name: "Muhsin", email: "muhsin@gmail.com");
+              _user.value = User(name: "Muhsin", email: "muhsin@gmail.com");
               _user.update((value) {});
               _user.update((user) => user.name = "Muhsin");
             },
@@ -93,8 +91,7 @@ class MyApp extends StatelessWidget {
                       itemCount: _incrementList.value.length,
                       itemBuilder: (BuildContext context, int index) {
                         return ListTile(
-                          tileColor:
-                          index.isEven ? Colors.red : Colors.green,
+                          tileColor: index.isEven ? Colors.red : Colors.green,
                           title: Text(
                             _incrementList.value[index].toString(),
                             style: const TextStyle(
@@ -116,10 +113,9 @@ class MyApp extends StatelessWidget {
 
 /// A stateless widget representing the second page of the application.
 class SecondPage extends StatelessWidget {
+  final HomeLogic homeLogic = SyncEaseLogic.get(HomeLogic());
 
- final HomeLogic homeLogic = SyncEaseLogic.get(HomeLogic());
-
- SecondPage({super.key});
+  SecondPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -142,4 +138,3 @@ class HomeLogic extends SyncEaseLogic {
     put();
   }
 }
-

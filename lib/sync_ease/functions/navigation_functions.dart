@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import '../src/utils.dart';
 
+/// Navigate to a page.
+///
+/// Example:
+/// ```dart
+/// to(SecondPage());
+/// ```
+void to(
+  Widget page,
+) {
+  Navigator.of(Utils.navigatorKey.currentContext!)
+      .push(MaterialPageRoute(builder: (context) => page));
+}
+
 /// Navigate to a named route with optional arguments.
 ///
 /// Example:
@@ -8,7 +21,8 @@ import '../src/utils.dart';
 /// toNamed('/details', arguments: {'id': 1});
 /// ```
 void toNamed(String routeName, {Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushNamed(routeName, arguments: arguments);
+  Navigator.of(Utils.navigatorKey.currentContext!)
+      .pushNamed(routeName, arguments: arguments);
 }
 
 /// Navigate back to the previous route with an optional result or arguments.
@@ -18,7 +32,7 @@ void toNamed(String routeName, {Map<String, dynamic>? arguments}) {
 /// back();
 /// ```
 void back({dynamic result, Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pop(result ?? arguments);
+  Navigator.of(Utils.navigatorKey.currentContext!).pop(result ?? arguments);
 }
 
 /// Replace the current page with the provided page widget, optionally passing arguments.
@@ -28,7 +42,7 @@ void back({dynamic result, Map<String, dynamic>? arguments}) {
 /// toReplace(MyReplacementPage(), arguments: {'refresh': true});
 /// ```
 void toReplace(Widget page, {Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushReplacement(
+  Navigator.of(Utils.navigatorKey.currentContext!).pushReplacement(
     MaterialPageRoute(builder: (context) => page),
     result: arguments,
   );
@@ -41,7 +55,8 @@ void toReplace(Widget page, {Map<String, dynamic>? arguments}) {
 /// toReplaceNamed('/newPage', arguments: {'data': data});
 /// ```
 void toReplaceNamed(String routeName, {Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushReplacementNamed(routeName, arguments: arguments);
+  Navigator.of(Utils.navigatorKey.currentContext!)
+      .pushReplacementNamed(routeName, arguments: arguments);
 }
 
 /// Clear all existing routes and push the provided page onto the navigation stack, optionally with custom settings.
@@ -51,9 +66,9 @@ void toReplaceNamed(String routeName, {Map<String, dynamic>? arguments}) {
 /// toClearAndPush(MyHomePage(), settings: RouteSettings(name: '/home'));
 /// ```
 void toClearAndPush(Widget page, {RouteSettings? settings}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushAndRemoveUntil(
+  Navigator.of(Utils.navigatorKey.currentContext!).pushAndRemoveUntil(
     MaterialPageRoute(builder: (context) => page, settings: settings),
-        (route) => false,
+    (route) => false,
   );
 }
 
@@ -64,9 +79,9 @@ void toClearAndPush(Widget page, {RouteSettings? settings}) {
 /// toClearAndPushNamed('/dashboard');
 /// ```
 void toClearAndPushNamed(String routeName, {Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushNamedAndRemoveUntil(
+  Navigator.of(Utils.navigatorKey.currentContext!).pushNamedAndRemoveUntil(
     routeName,
-        (route) => false,
+    (route) => false,
     arguments: arguments,
   );
 }
@@ -78,12 +93,12 @@ void toClearAndPushNamed(String routeName, {Map<String, dynamic>? arguments}) {
 /// toPushAndClearAll(MyPage(), settings: RouteSettings(name: '/newPage'));
 /// ```
 void toPushAndClearAll(Widget page, {RouteSettings? settings}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushAndRemoveUntil(
+  Navigator.of(Utils.navigatorKey.currentContext!).pushAndRemoveUntil(
     MaterialPageRoute(
       settings: settings,
       builder: (context) => page,
     ),
-        (route) => false,
+    (route) => false,
   );
 }
 
@@ -93,8 +108,9 @@ void toPushAndClearAll(Widget page, {RouteSettings? settings}) {
 /// ```dart
 /// toPushAndClearUntil(MyPage(), ModalRoute.withName('/dashboard'));
 /// ```
-void toPushAndClearUntil(Widget page, RoutePredicate predicate, {RouteSettings? settings}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushAndRemoveUntil(
+void toPushAndClearUntil(Widget page, RoutePredicate predicate,
+    {RouteSettings? settings}) {
+  Navigator.of(Utils.navigatorKey.currentContext!).pushAndRemoveUntil(
     MaterialPageRoute(
       settings: settings,
       builder: (context) => page,
@@ -109,8 +125,9 @@ void toPushAndClearUntil(Widget page, RoutePredicate predicate, {RouteSettings? 
 /// ```dart
 /// toPushNamedAndClearUntil('/login', ModalRoute.withName('/dashboard'));
 /// ```
-void toPushNamedAndClearUntil(String routeName, RoutePredicate predicate, {Map<String, dynamic>? arguments}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushNamedAndRemoveUntil(
+void toPushNamedAndClearUntil(String routeName, RoutePredicate predicate,
+    {Map<String, dynamic>? arguments}) {
+  Navigator.of(Utils.navigatorKey.currentContext!).pushNamedAndRemoveUntil(
     routeName,
     predicate,
     arguments: arguments,
@@ -127,7 +144,7 @@ void toPushNamedAndClearUntil(String routeName, RoutePredicate predicate, {Map<S
 /// toClearAndPushWithFade(MyPage(), arguments: {'showIntro': true});
 /// ```
 void toClearAndPushWithFade(Widget page, {RouteSettings? settings}) {
-  Navigator.of(Utils.globalKey.currentContext!).pushAndRemoveUntil(
+  Navigator.of(Utils.navigatorKey.currentContext!).pushAndRemoveUntil(
     PageRouteBuilder(
       settings: settings,
       pageBuilder: (context, animation, secondaryAnimation) => page,
@@ -135,6 +152,6 @@ void toClearAndPushWithFade(Widget page, {RouteSettings? settings}) {
         return FadeTransition(opacity: animation, child: child);
       },
     ),
-        (route) => false,
+    (route) => false,
   );
 }

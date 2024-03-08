@@ -10,5 +10,4 @@ class EaseHelper {
   /// Returns the width of the screen.
   static double get width =>
       MediaQuery.of(Utils.globalKey.currentContext!).size.width;
-
 }

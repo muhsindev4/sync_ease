@@ -164,7 +164,7 @@ class SyncEaseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       key: Utils.globalKey,
-      navigatorKey: navigatorKey,
+      navigatorKey: navigatorKey ?? Utils.navigatorKey,
       scaffoldMessengerKey: scaffoldMessengerKey,
       home: home,
       routes: routes,

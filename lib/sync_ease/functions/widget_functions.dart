@@ -11,7 +11,8 @@ import '../src/utils.dart';
 /// showSyncSnackBar(SnackBar(content: Text('Hello, world!')));
 /// ```
 showSyncSnackBar(SnackBar snackBar) {
-  ScaffoldMessenger.of(Utils.globalKey.currentContext!).showSnackBar(snackBar);
+  ScaffoldMessenger.of(Utils.navigatorKey.currentContext!)
+      .showSnackBar(snackBar);
 }
 
 /// Shows an alert dialog using [showDialog] without requiring a BuildContext.
@@ -40,7 +41,7 @@ showSyncAlertBox({
   TraversalEdgeBehavior? traversalEdgeBehavior,
 }) {
   showDialog(
-      context: Utils.globalKey.currentContext!,
+      context: Utils.navigatorKey.currentContext!,
       builder: builder,
       barrierDismissible: barrierDismissible,
       barrierColor: barrierColor,
@@ -116,7 +117,7 @@ showSyncDatePicker({
     'Provided initialDate $initialDate must satisfy provided selectableDayPredicate.',
   );
   showDatePicker(
-      context: Utils.globalKey.currentContext!,
+      context: Utils.navigatorKey.currentContext!,
       firstDate: firstDate,
       lastDate: lastDate);
 }

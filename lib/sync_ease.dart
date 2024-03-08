@@ -8,3 +8,5 @@ export 'package:sync_ease/sync_ease/widgets/ease_builder.dart';
 export 'package:sync_ease/sync_ease/widgets/sync_ease_app.dart';
 export 'package:sync_ease/sync_ease/widgets/logic_builder.dart';
 export 'package:sync_ease/helper/ease_helper.dart';
+export 'package:sync_ease/sync_ease/functions/widget_functions.dart';
+export 'package:sync_ease/sync_ease/functions/navigation_functions.dart';
